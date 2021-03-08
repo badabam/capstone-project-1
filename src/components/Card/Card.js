@@ -18,6 +18,9 @@ const CardGrid = styled.div`
   justify-content: center;
   margin: 10px;
   gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #ddd;
 `
 
 const Poster = styled.img`

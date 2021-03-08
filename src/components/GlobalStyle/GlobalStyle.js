@@ -8,6 +8,7 @@ body {
   font-family: 'Montserrat', sans-serif;  
   font-size: 112.5%;
   margin: 0 auto;
+  background-color: #eee;
 
 }
 input,
