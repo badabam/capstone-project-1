@@ -2,36 +2,49 @@
   {
     "id": "1",
     "title": "The Shawshank Redemption",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Drama", "Mistery", "Fiction"]
   },
   {
-    "id": "1",
+    "id": "2",
     "title": "The Godfather",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Crime", "Drama", "Mafia"]
   },
   {
-    "id": "1",
+    "id": "3",
     "title": "The Godfather: Part II",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Crime", "Drama", "Mafia"]
   },
   {
-    "id": "1",
+    "id": "4",
     "title": "Pulp Fiction",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Crime", "Comedy", "Mafia"]
   },
   {
-    "id": "1",
+    "id": "5",
     "title": "The Good, the Bad and the Ugly",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Action", "Adventure", "Western"]
   },
   {
-    "id": "1",
+    "id": "6",
     "title": "The Dark Knight",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Crime", "Drama", "Suspense", "Action"]
   },
   {
-    "id": "1",
+    "id": "7",
     "title": "12 Angry Men",
-    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300"
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Crime", "Drama"]
+  },
+  {
+    "id": "8",
+    "title": "The Avengers",
+    "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
+    "genre": ["Action", "Adventure", "Fantasy"]
   }
 ]
