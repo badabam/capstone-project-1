@@ -1,12 +1,13 @@
 import styled from 'styled-components/macro'
 
-export default function Card({ title, poster, id }) {
+export default function Card({ title, poster, id, genre }) {
   return (
     <>
       <CardGrid>
-        <span>{title}</span>
+        <p>{title}</p>
 
         <Poster src={poster} alt="" />
+        {/* <span>{genre}</span> */}
       </CardGrid>
     </>
   )
