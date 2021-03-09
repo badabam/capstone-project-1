@@ -6,9 +6,9 @@ import SearchInput from './components/SearchInput/SearchInput'
 import data from './movieList.json'
 
 function App() {
-  const array = []
-  data.map(({ genre }) => genre.map(item => array.push(item)))
-  const newArray = [...new Set(array)]
+  const tag = []
+  data.map(({ genre }) => genre.map(item => tag.push(item)))
+  const uniqueTag = [...new Set(tag)]
   return (
     <div>
       <Header name="Movie Picker" />
@@ -20,8 +20,8 @@ function App() {
       ))}
       <p>Pick your Genre(s):</p>
 
-      {newArray.map((item, index) => (
-        <Button onClick={() => index}>{item}</Button>
+      {uniqueTag.map(item => (
+        <Button>{item}</Button>
       ))}
     </div>
   )
