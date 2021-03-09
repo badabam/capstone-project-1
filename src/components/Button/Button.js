@@ -9,4 +9,5 @@ export default styled.button`
   justify-content: center;
   background: #ddd;
   font-family: inherit;
+  margin: 2px 5px;
 `
