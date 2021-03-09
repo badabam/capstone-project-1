@@ -9,8 +9,8 @@ function App() {
     <div>
       <Header name="Movie Picker" />
       <SearchInput labelText="Choose your Movie:" placeholder="Movie Name" />
-      {data.map(({ id, title, poster }) => (
-        <Card key={id} title={title} poster={poster} />
+      {data.map(({ id, title, poster, genre }) => (
+        <Card key={id} title={title} poster={poster} genre={genre} />
       ))}
     </div>
   )

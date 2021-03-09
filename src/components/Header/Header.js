@@ -9,6 +9,5 @@ const HeaderApp = styled.header`
   text-transform: uppercase;
   background: #ccc;
   padding: 20px;
-  position: relative;
-  margin-top: 0;
+  margin-bottom: 20px;
 `
