@@ -6,7 +6,7 @@ import data from './movieList.json'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header name="Movie Picker" />
       <SearchInput labelText="Choose your Movie:" placeholder="Movie Name" />
       {data.map(({ id, title, poster }) => (
