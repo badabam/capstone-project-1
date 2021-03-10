@@ -1,16 +1,27 @@
 import './App.css'
+import Button from './components/Button/Button'
 import Card from './components/Card/Card'
 import Header from './components/Header/Header'
 import SearchInput from './components/SearchInput/SearchInput'
 import data from './movieList.json'
 
 function App() {
+  const tag = []
+  data.map(({ genre }) => genre.map(item => tag.push(item)))
+  const uniqueTag = [...new Set(tag)]
   return (
     <div>
       <Header name="Movie Picker" />
+
       <SearchInput labelText="Choose your Movie:" placeholder="Movie Name" />
-      {data.map(({ id, title, poster }) => (
-        <Card key={id} title={title} poster={poster} />
+
+      {data.map(({ id, title, poster, genre }) => (
+        <Card key={id} title={title} poster={poster} genre={genre} />
+      ))}
+      <p>Pick your Genre(s):</p>
+
+      {uniqueTag.map(item => (
+        <Button>{item}</Button>
       ))}
     </div>
   )

@@ -5,4 +5,4 @@ export default {
   component: Header,
 }
 
-export const HeaderApp = () => <Header name="Movie" />
+export const HeaderApp = () => <Header name="Movie Picker" />

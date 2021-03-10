@@ -1,12 +1,17 @@
 import styled from 'styled-components/macro'
+import Button from '../Button/Button'
 
-export default function Card({ title, poster, id }) {
+export default function Card({ title, poster, genre }) {
   return (
     <>
       <CardGrid>
         <span>{title}</span>
-
         <Poster src={poster} alt="" />
+        <GenreWrapper>
+          {genre.map(item => (
+            <Button>{item}</Button>
+          ))}
+        </GenreWrapper>
       </CardGrid>
     </>
   )
@@ -25,4 +30,8 @@ const CardGrid = styled.div`
 
 const Poster = styled.img`
   border-radius: 10px;
+`
+const GenreWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
 `
