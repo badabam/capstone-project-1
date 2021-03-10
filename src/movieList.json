@@ -3,7 +3,7 @@
     "id": "1",
     "title": "The Shawshank Redemption",
     "poster": "https://images.unsplash.com/photo-1613643044620-287b74606da1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixlib=rb-1.2.1&q=80&w=300",
-    "genre": ["Drama", "Mistery", "Fiction"]
+    "genre": ["Drama", "Mystery", "Fiction"]
   },
   {
     "id": "2",
