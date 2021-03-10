@@ -5,17 +5,26 @@ import Card from './components/Card/Card'
 import FilterTag from './components/FilterTag/FilterTag'
 import Header from './components/Header/Header'
 import SearchInput from './components/SearchInput/SearchInput'
-import data from './movieList.json'
+import movies from './movieList.json'
 
 function App() {
-  const [filteredMovies, setFilteredMovies] = useState(data)
+  const [genres, setGenres] = useState([])
+
+  const filteredMovies = movies.filter(
+    movie => genres.length === 0 || movie.genre.some(g => genres.includes(g))
+  )
+
   return (
     <div>
       <Header name="Movie Picker" />
 
-      <SearchInput labelText="Choose your Movie:" placeholder="Movie Name" />
+      <SearchInput
+        name="name"
+        labelText="Choose your Movie:"
+        placeholder="Movie Name"
+      />
 
-      <FilterTag onFilteredMovie={onFilteredMovie} />
+      <FilterTag genres={genres} onSetGenre={handleSetGenre} />
 
       {filteredMovies.map(({ id, title, poster, genre }) => (
         <Card key={id} title={title} poster={poster} genre={genre} />
@@ -23,9 +32,12 @@ function App() {
     </div>
   )
 
-  function onFilteredMovie(genre) {
-    const filterMovie = data.filter(movie => movie.genre.includes(genre))
-    setFilteredMovies(filterMovie)
+  function handleSetGenre(genre) {
+    if (genres.includes(genre)) {
+      setGenres(genres.filter(g => g !== genre))
+    } else {
+      setGenres([...genres, genre])
+    }
   }
 }
 

@@ -1,17 +1,20 @@
-import data from '../../movieList.json'
+import movies from '../../movieList.json'
 import Button from '../Button/Button'
 
-export default function FilterTag({ onFilteredMovie }) {
-  const genreTag = []
-  data.map(({ genre }) => genre.map(item => genreTag.push(item)))
-  const uniqueTag = [...new Set(genreTag)]
+export default function FilterTag({ onSetGenre, genres }) {
+  const allGenres = movies.flatMap(({ genre }) => genre)
+  const uniqueTags = [...new Set(allGenres)]
   return (
     <div>
       <p>Pick your Genre(s):</p>
 
-      {uniqueTag.map((item, id) => (
-        <Button key={id} onClick={() => onFilteredMovie(item)}>
-          {item}
+      {uniqueTags.map((tag, id) => (
+        <Button
+          active={genres.includes(tag)}
+          key={id}
+          onClick={() => onSetGenre(tag)}
+        >
+          {tag}
         </Button>
       ))}
     </div>
