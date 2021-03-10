@@ -1,10 +1,20 @@
 import styled from 'styled-components/macro'
 
-export default function SearchInput({ labelText, placeholder, name }) {
+export default function SearchInput({
+  labelText,
+  placeholder,
+  searchInputValue,
+  setSearchInputValue,
+}) {
   return (
     <LabelGrid>
       {labelText}
-      <input name={name} placeholder={placeholder} type="text" />
+      <input
+        value={searchInputValue}
+        placeholder={placeholder}
+        type="text"
+        onChange={event => setSearchInputValue(event.target.value)}
+      />
     </LabelGrid>
   )
 }
