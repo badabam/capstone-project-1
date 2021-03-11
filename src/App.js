@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import './App.css'
-import Card from './components/Card/Card'
-import FilterTag from './components/FilterTag/FilterTag'
-import Header from './components/Header/Header'
-import SearchInput from './components/SearchInput/SearchInput'
 import movies from './movieList.json'
+import { Route, Switch } from 'react-router-dom'
+import HomePage from './components/HomePage'
+import SearchPage from './components/SearchPage'
+import FilteredMoviesPage from './components/FilteredMoviesPage'
 
 function App() {
   const [genres, setGenres] = useState([])
@@ -17,22 +16,37 @@ function App() {
 
   return (
     <div>
-      <Header name="Movie Picker" />
-      <SearchInput
-        labelText="Choose your Movie:"
-        placeholder="Movie Name"
-        searchInputValue={searchInputValue}
-        setSearchInputValue={setSearchInputValue}
-      />
-      <FilterTag genres={genres} onSetGenre={handleSetGenre} />
+      <Switch>
+        <Route exact path="/">
+          <HomePage filteredMovies={filteredMovies} />
+        </Route>
+      </Switch>
 
-      {filteredMovies
-        .filter(item =>
-          item.title.toLowerCase().includes(searchInputValue.toLowerCase())
-        )
-        .map(({ id, title, poster, genre }) => (
-          <Card key={id} title={title} poster={poster} genre={genre} />
-        ))}
+      <Switch>
+        <Route path="/create"></Route>
+      </Switch>
+
+      <Switch>
+        <Route path="/search">
+          <SearchPage
+            labelText="Choose your Movie:"
+            placeholder="Movie Name"
+            searchInputValue={searchInputValue}
+            setSearchInputValue={setSearchInputValue}
+            genres={genres}
+            onSetGenre={handleSetGenre}
+          />
+        </Route>
+      </Switch>
+
+      <Switch>
+        <Route path="/filteredmovies">
+          <FilteredMoviesPage
+            filteredMovies={filteredMovies}
+            searchInputValue={searchInputValue}
+          />
+        </Route>
+      </Switch>
     </div>
   )
 
