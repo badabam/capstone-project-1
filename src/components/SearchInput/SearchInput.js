@@ -27,4 +27,7 @@ const LabelGrid = styled.label`
     border: 2px solid #bbb;
     border-radius: 10px;
   }
+  input:focus {
+    outline: none;
+  }
 `

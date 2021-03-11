@@ -6,4 +6,10 @@ export default {
   component: Card,
 }
 
-export const CardDefault = () => <Card title="Batman" poster={posterImg} />
+export const CardDefault = () => (
+  <Card
+    title={['Batman']}
+    genre={['action', 'adventure', 'drama']}
+    poster={posterImg}
+  />
+)
