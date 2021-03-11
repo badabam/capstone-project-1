@@ -20,13 +20,9 @@ function App() {
         <Route exact path="/">
           <HomePage filteredMovies={filteredMovies} />
         </Route>
-      </Switch>
 
-      <Switch>
         <Route path="/create"></Route>
-      </Switch>
 
-      <Switch>
         <Route path="/search">
           <SearchPage
             labelText="Choose your Movie:"
@@ -37,9 +33,7 @@ function App() {
             onSetGenre={handleSetGenre}
           />
         </Route>
-      </Switch>
 
-      <Switch>
         <Route path="/filteredmovies">
           <FilteredMoviesPage
             filteredMovies={filteredMovies}
