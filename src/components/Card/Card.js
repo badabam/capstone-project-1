@@ -30,6 +30,7 @@ const CardGrid = styled.div`
 
 const Poster = styled.img`
   border-radius: 10px;
+  margin: auto;
 `
 const GenreWrapper = styled.div`
   display: flex;
