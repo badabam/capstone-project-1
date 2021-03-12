@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import movies from './movieList.json'
 import { Route, Switch } from 'react-router-dom'
-import HomePage from './components/HomePage'
+import movies from './movieList.json'
+
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
 
@@ -18,12 +18,6 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/">
-          <HomePage filteredMovies={filteredMovies} />
-        </Route>
-
-        <Route path="/create"></Route>
-
-        <Route path="/search">
           <SearchPage
             labelText="Choose your Movie:"
             placeholder="Movie Name"
