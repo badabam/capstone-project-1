@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import movies from './movieList.json'
 import { Route, Switch } from 'react-router-dom'
+import movies from './movieList.json'
 import HomePage from './components/HomePage'
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'

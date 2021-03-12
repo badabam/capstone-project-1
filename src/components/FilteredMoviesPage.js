@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from './Button/Button'
 import Card from './Card/Card'
 import Header from './Header/Header'
 
@@ -8,6 +11,11 @@ export default function FilteredMoviesPage({
   return (
     <>
       <Header name="Movie Picker" />
+      <ButtonWrapper>
+        <Button as={Link} to="/search">
+          Back to Search Page
+        </Button>
+      </ButtonWrapper>
       {filteredMovies
         .filter(item =>
           item.title.toLowerCase().includes(searchInputValue.toLowerCase())
@@ -18,3 +26,8 @@ export default function FilteredMoviesPage({
     </>
   )
 }
+
+const ButtonWrapper = styled.div`
+  text-align: center;
+  margin: 35px;
+`

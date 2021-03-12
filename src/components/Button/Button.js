@@ -7,6 +7,7 @@ export default styled.button`
   border: none;
   text-align: center;
   justify-content: center;
+  text-decoration: none;
   background: ${p => (p.active ? '#333' : '#ddd')};
   color: ${p => (p.active ? 'white' : 'black')};
   font-family: inherit;
