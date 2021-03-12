@@ -12,7 +12,7 @@ export default function FilteredMoviesPage({
     <>
       <Header name="Movie Picker" />
       <ButtonWrapper>
-        <Button as={Link} to="/search">
+        <Button as={Link} to="/">
           Back to Search Page
         </Button>
       </ButtonWrapper>

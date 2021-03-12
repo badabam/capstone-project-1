@@ -23,9 +23,6 @@ export default function SearchPage({
       <FilterTag genres={genres} onSetGenre={onSetGenre} />
 
       <ButtonWrapper>
-        <Button as={Link} to="/">
-          HomePage
-        </Button>
         <Button as={Link} to="/filteredmovies">
           Check out your Filtered Movies
         </Button>

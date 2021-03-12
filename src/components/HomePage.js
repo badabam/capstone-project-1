@@ -4,7 +4,7 @@ import Button from './Button/Button'
 import Card from './Card/Card'
 import Header from './Header/Header'
 
-export default function HomePage({ filteredMovies }) {
+export default function HomePage({ movies }) {
   return (
     <>
       <Header name="Movie Picker" />
@@ -13,7 +13,7 @@ export default function HomePage({ filteredMovies }) {
           Click here to Search for Movies
         </Button>
       </ButtonWrapper>
-      {filteredMovies.map(({ id, title, poster, genre }) => (
+      {movies.map(({ id, title, poster, genre }) => (
         <Card key={id} title={title} poster={poster} genre={genre} />
       ))}
     </>
