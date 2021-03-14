@@ -21,8 +21,9 @@ export default function SearchInput({
 
 const LabelGrid = styled.label`
   display: grid;
-  gap: 4px;
+  gap: 10px;
   justify-content: center;
+  text-align: center;
   input {
     border: 2px solid #bbb;
     border-radius: 10px;

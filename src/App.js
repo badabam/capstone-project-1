@@ -4,9 +4,12 @@ import movies from './movieList.json'
 
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
+import UserInput from './components/UserInput/UserInput'
+import User from './components/User/User'
 
 function App() {
   const [genres, setGenres] = useState([])
+  const [players, setPlayers] = useState([])
 
   const filteredMovies = movies.filter(
     movie => genres.length === 0 || movie.genre.some(g => genres.includes(g))
@@ -26,6 +29,16 @@ function App() {
             genres={genres}
             onSetGenre={handleSetGenre}
           />
+          <br /> <br />
+          <UserInput
+            labelText="Insert your Names:"
+            placeholder="John Doe"
+            onAddPlayer={addPlayer}
+            players={players}
+          ></UserInput>
+          {players.map(({ name }, index) => (
+            <User key={index} player={name} />
+          ))}
         </Route>
 
         <Route path="/filteredmovies">
@@ -44,6 +57,10 @@ function App() {
     } else {
       setGenres([...genres, genre])
     }
+  }
+
+  function addPlayer({ nameOfPlayer }) {
+    setPlayers([{ name: nameOfPlayer }, ...players])
   }
 }
 
