@@ -6,6 +6,7 @@ import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
 import UserInput from './components/UserInput/UserInput'
 import User from './components/User/User'
+import HomePage from './components/HomePage'
 
 function App() {
   const [genres, setGenres] = useState([])
@@ -21,6 +22,15 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/">
+          <HomePage
+            labelText="Insert your Names:"
+            placeholder="John Doe"
+            addPlayer={addPlayer}
+            players={players}
+          />
+        </Route>
+
+        <Route path="/search">
           <SearchPage
             labelText="Choose your Movie:"
             placeholder="Movie Name"
@@ -29,16 +39,6 @@ function App() {
             genres={genres}
             onSetGenre={handleSetGenre}
           />
-          <br /> <br />
-          <UserInput
-            labelText="Insert your Names:"
-            placeholder="John Doe"
-            onAddPlayer={addPlayer}
-            players={players}
-          ></UserInput>
-          {players.map(({ name }, index) => (
-            <User key={index} player={name} />
-          ))}
         </Route>
 
         <Route path="/filteredmovies">

@@ -8,8 +8,10 @@ export default function UserInput({ labelText, placeholder, onAddPlayer }) {
         {labelText}
         <input
           name="playerName"
+          required
           placeholder={placeholder}
           type="text"
+          minLength="3"
           maxLength="20"
         />
       </label>

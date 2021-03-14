@@ -23,9 +23,12 @@ export default function SearchPage({
       <FilterTag genres={genres} onSetGenre={onSetGenre} />
 
       <ButtonWrapper>
-        <Button as={Link} to="/filteredmovies">
+        <MenuButton as={Link} to="/">
+          Home
+        </MenuButton>
+        <MenuButton as={Link} to="/filteredmovies">
           Check out your Filtered Movies
-        </Button>
+        </MenuButton>
       </ButtonWrapper>
     </>
   )
@@ -34,4 +37,10 @@ export default function SearchPage({
 const ButtonWrapper = styled.div`
   text-align: center;
   margin-top: 35px;
+`
+const MenuButton = styled(Button)`
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 `
