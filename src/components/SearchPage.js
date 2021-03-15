@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from './Button/Button'
 import FilterTag from './FilterTag/FilterTag'
 import Header from './Header/Header'
+
 import SearchInput from './SearchInput/SearchInput'
 
 export default function SearchPage({
@@ -20,6 +21,7 @@ export default function SearchPage({
         searchInputValue={searchInputValue}
         setSearchInputValue={setSearchInputValue}
       />
+
       <FilterTag genres={genres} onSetGenre={onSetGenre} />
 
       <ButtonWrapper>

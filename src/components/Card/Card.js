@@ -8,8 +8,8 @@ export default function Card({ title, poster, genre }) {
         <span>{title}</span>
         <Poster src={poster} alt="" />
         <GenreWrapper>
-          {genre.map(item => (
-            <Button>{item}</Button>
+          {genre.map((item, index) => (
+            <Button Key={index}>{item}</Button>
           ))}
         </GenreWrapper>
       </CardGrid>

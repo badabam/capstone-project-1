@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import Button from '../Button/Button'
 
 export default function SearchInput({
   labelText,
@@ -12,12 +14,17 @@ export default function SearchInput({
       <label>
         {labelText}
         <input
+          name="movie"
           value={searchInputValue}
           placeholder={placeholder}
           type="text"
+          maxLength="50"
           onChange={event => setSearchInputValue(event.target.value)}
         />
       </label>
+      <Button as={Link} to={'/filteredmovies'}>
+        Search
+      </Button>
     </FormGrid>
   )
 

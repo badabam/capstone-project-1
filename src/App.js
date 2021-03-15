@@ -4,8 +4,6 @@ import movies from './movieList.json'
 
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
-import UserInput from './components/UserInput/UserInput'
-import User from './components/User/User'
 import HomePage from './components/HomePage'
 
 function App() {
@@ -27,9 +25,9 @@ function App() {
             placeholder="John Doe"
             addPlayer={addPlayer}
             players={players}
+            onHandleDelete={handleDelete}
           />
         </Route>
-
         <Route path="/search">
           <SearchPage
             labelText="Choose your Movie:"
@@ -40,7 +38,6 @@ function App() {
             onSetGenre={handleSetGenre}
           />
         </Route>
-
         <Route path="/filteredmovies">
           <FilteredMoviesPage
             filteredMovies={filteredMovies}
@@ -61,6 +58,10 @@ function App() {
 
   function addPlayer({ nameOfPlayer }) {
     setPlayers([{ name: nameOfPlayer }, ...players])
+  }
+
+  function handleDelete(index) {
+    setPlayers([...players.slice(0, index), ...players.slice(index + 1)])
   }
 }
 

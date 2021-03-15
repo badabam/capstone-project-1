@@ -5,7 +5,7 @@ import Button from './Button/Button'
 import Header from './Header/Header'
 import User from './User/User'
 import UserInput from './UserInput/UserInput'
-export default function HomePage({ players, addPlayer }) {
+export default function HomePage({ players, addPlayer, onHandleDelete }) {
   return (
     <>
       <Header name="Movie Picker" />
@@ -17,7 +17,11 @@ export default function HomePage({ players, addPlayer }) {
         players={players}
       ></UserInput>
       {players.map(({ name }, index) => (
-        <User key={index} player={name} />
+        <User
+          key={index}
+          name={name}
+          onHandleDelete={() => onHandleDelete(index)}
+        />
       ))}
       <ButtonWrapper>
         <MenuButton as={Link} to="/search">

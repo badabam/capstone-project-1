@@ -1,11 +1,12 @@
 import styled from 'styled-components/macro'
+import Button from '../Button/Button'
 
-export default function User({ player }) {
+export default function User({ name, onHandleDelete }) {
   return (
     <section>
       <Player>
-        <PlayerName>{player}</PlayerName>
-        <span>X</span>
+        <PlayerName>{name}</PlayerName>
+        <Button onClick={onHandleDelete}>X</Button>
       </Player>
     </section>
   )
