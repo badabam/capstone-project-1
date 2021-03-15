@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from './Button/Button'
 import FilterTag from './FilterTag/FilterTag'
 import Header from './Header/Header'
+
 import SearchInput from './SearchInput/SearchInput'
 
 export default function SearchPage({
@@ -20,12 +21,16 @@ export default function SearchPage({
         searchInputValue={searchInputValue}
         setSearchInputValue={setSearchInputValue}
       />
+
       <FilterTag genres={genres} onSetGenre={onSetGenre} />
 
       <ButtonWrapper>
-        <Button as={Link} to="/filteredmovies">
+        <MenuButton as={Link} to="/">
+          Home
+        </MenuButton>
+        <MenuButton as={Link} to="/filteredmovies">
           Check out your Filtered Movies
-        </Button>
+        </MenuButton>
       </ButtonWrapper>
     </>
   )
@@ -34,4 +39,10 @@ export default function SearchPage({
 const ButtonWrapper = styled.div`
   text-align: center;
   margin-top: 35px;
+`
+const MenuButton = styled(Button)`
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 `

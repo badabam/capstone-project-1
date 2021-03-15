@@ -1,51 +1,40 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 
-export default function SearchInput({
-  labelText,
-  placeholder,
-  searchInputValue,
-  setSearchInputValue,
-  onSearchMovie,
-}) {
+export default function UserInput({ labelText, placeholder, onAddPlayer }) {
   return (
     <FormGrid onSubmit={handleSubmit}>
       <label>
         {labelText}
         <input
-          name="movie"
-          value={searchInputValue}
+          name="playerName"
+          required
           placeholder={placeholder}
           type="text"
-          maxLength="50"
-          onChange={event => setSearchInputValue(event.target.value)}
+          minLength="3"
+          maxLength="20"
         />
       </label>
-      <Button as={Link} to={'/filteredmovies'}>
-        Search
-      </Button>
+      <Button>Add Name</Button>
     </FormGrid>
   )
-
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const { movieName } = form.elements
+    const { playerName } = form.elements
 
-    onSearchMovie({
-      nameOfMovie: movieName.value,
+    onAddPlayer({
+      nameOfPlayer: playerName.value,
     })
     form.reset()
-    movieName.focus()
+    playerName.focus()
   }
 }
 
-const FormGrid = styled.label`
+const FormGrid = styled.form`
   display: grid;
-  gap: 10px;
+  gap: 4px;
   justify-content: center;
-  text-align: center;
   label {
     display: grid;
     gap: 10px;
@@ -54,6 +43,7 @@ const FormGrid = styled.label`
   input {
     border: 2px solid #bbb;
     border-radius: 10px;
+    margin-bottom: 10px;
   }
   input:focus {
     outline: none;

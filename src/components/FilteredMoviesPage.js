@@ -12,9 +12,12 @@ export default function FilteredMoviesPage({
     <>
       <Header name="Movie Picker" />
       <ButtonWrapper>
-        <Button as={Link} to="/">
-          Back to Search Page
-        </Button>
+        <MenuButton as={Link} to="/">
+          Home
+        </MenuButton>
+        <MenuButton as={Link} to="/search">
+          Search Page
+        </MenuButton>
       </ButtonWrapper>
       {filteredMovies
         .filter(item =>
@@ -30,4 +33,10 @@ export default function FilteredMoviesPage({
 const ButtonWrapper = styled.div`
   text-align: center;
   margin: 35px;
+`
+const MenuButton = styled(Button)`
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 `

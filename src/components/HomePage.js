@@ -1,21 +1,33 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Button from './Button/Button'
-import Card from './Card/Card'
-import Header from './Header/Header'
 
-export default function HomePage({ movies }) {
+import Header from './Header/Header'
+import User from './User/User'
+import UserInput from './UserInput/UserInput'
+export default function HomePage({ players, addPlayer, onHandleDelete }) {
   return (
     <>
       <Header name="Movie Picker" />
-      <ButtonWrapper>
-        <Button as={Link} to="/search">
-          Click here to Search for Movies
-        </Button>
-      </ButtonWrapper>
-      {movies.map(({ id, title, poster, genre }) => (
-        <Card key={id} title={title} poster={poster} genre={genre} />
+
+      <UserInput
+        labelText="Insert your Names:"
+        placeholder="John Doe"
+        onAddPlayer={addPlayer}
+        players={players}
+      ></UserInput>
+      {players.map(({ name }, index) => (
+        <User
+          key={index}
+          name={name}
+          onHandleDelete={() => onHandleDelete(index)}
+        />
       ))}
+      <ButtonWrapper>
+        <MenuButton as={Link} to="/search">
+          Click here to Search for Movies
+        </MenuButton>
+      </ButtonWrapper>
     </>
   )
 }
@@ -23,4 +35,10 @@ export default function HomePage({ movies }) {
 const ButtonWrapper = styled.div`
   text-align: center;
   margin: 35px;
+`
+const MenuButton = styled(Button)`
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
 `
