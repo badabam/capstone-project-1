@@ -9,7 +9,7 @@ export default function Card({ title, poster, genre }) {
         <Poster src={poster} alt="" />
         <GenreWrapper>
           {genre.map((item, index) => (
-            <Button Key={index}>{item}</Button>
+            <Button key={index}>{item}</Button>
           ))}
         </GenreWrapper>
       </CardGrid>

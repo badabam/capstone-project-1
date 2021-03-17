@@ -1,5 +1,5 @@
 import Card from './Card'
-import posterImg from '../../image/poster.jpg'
+import posterImg from './test_img.jpg'
 
 export default {
   title: 'Card Component',
