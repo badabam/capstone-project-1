@@ -5,9 +5,17 @@ import Card from './Card/Card'
 import Header from './Header/Header'
 
 export default function FilteredMoviesPage({
-  filteredMovies,
-  searchInputValue,
+  movies,
+  filterByGenres,
+  genres,
+  // searchInputValue,
 }) {
+  const filteredMovies = movies.filter(
+    movie =>
+      filterByGenres.length === 0 ||
+      movie.genre_ids.some(g => filterByGenres.includes(g))
+  )
+
   return (
     <>
       <Header name="Movie Picker" />
@@ -20,11 +28,17 @@ export default function FilteredMoviesPage({
         </MenuButton>
       </ButtonWrapper>
       {filteredMovies
-        .filter(item =>
-          item.title.toLowerCase().includes(searchInputValue.toLowerCase())
-        )
-        .map(({ id, title, poster, genre }) => (
-          <Card key={id} title={title} poster={poster} genre={genre} />
+        // .filter(item =>
+        //   item.title.toLowerCase().includes(searchInputValue.toLowerCase())
+        // )
+        .map(({ id, title, poster_path, genre_ids }) => (
+          <Card
+            title={title}
+            image={poster_path}
+            genresMovie={genre_ids}
+            allGenres={genres}
+            key={id}
+          />
         ))}
     </>
   )
