@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
 import HomePage from './components/HomePage'
-require('dotenv').config()
 
 export default function App() {
   const [players, setPlayers] = useState([])
