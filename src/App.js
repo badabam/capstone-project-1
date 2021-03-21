@@ -13,19 +13,22 @@ export default function App() {
   const [searchInputValue, setSearchInputValue] = useState([])
 
   const { REACT_APP_TMDB_API_KEY } = process.env
-  const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}`
+  let MOVIE_API
   const GENRE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US`
 
   useEffect(() => {
-    fetch(MOVIE_API)
-      .then(res => res.json())
-      .then(data => {
-        setFetchMovies(data.results)
-        console.log(data.results)
-      })
-      .catch(error => {
-        throw error
-      })
+    for (let i = 1; i <= 5; i++) {
+      MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}&page=${i}`
+
+      fetch(MOVIE_API)
+        .then(res => res.json())
+        .then(data => {
+          setFetchMovies(oldState => [...oldState, ...data.results])
+        })
+        .catch(error => {
+          throw error
+        })
+    }
   }, [MOVIE_API])
 
   useEffect(() => {
