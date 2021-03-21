@@ -1,20 +1,43 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import movies from './movieList.json'
 
 import SearchPage from './components/SearchPage'
 import FilteredMoviesPage from './components/FilteredMoviesPage'
 import HomePage from './components/HomePage'
 
-function App() {
-  const [genres, setGenres] = useState([])
+export default function App() {
   const [players, setPlayers] = useState([])
+  const [fetchMovies, setFetchMovies] = useState([])
+  const [genres, setGenres] = useState([])
+  const [filterByGenres, setFilterByGenres] = useState([])
+  const [searchInputValue, setSearchInputValue] = useState([])
 
-  const filteredMovies = movies.filter(
-    movie => genres.length === 0 || movie.genre.some(g => genres.includes(g))
-  )
+  const { REACT_APP_TMDB_API_KEY } = process.env
+  const MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}`
+  const GENRE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US`
 
-  const [searchInputValue, setSearchInputValue] = useState('')
+  useEffect(() => {
+    fetch(MOVIE_API)
+      .then(res => res.json())
+      .then(data => {
+        setFetchMovies(data.results)
+        console.log(data.results)
+      })
+      .catch(error => {
+        throw error
+      })
+  }, [MOVIE_API])
+
+  useEffect(() => {
+    fetch(GENRE_API)
+      .then(res => res.json())
+      .then(data => {
+        setGenres([...data.genres])
+      })
+      .catch(error => {
+        throw error
+      })
+  }, [GENRE_API])
 
   return (
     <div>
@@ -28,6 +51,7 @@ function App() {
             onHandleDelete={handleDelete}
           />
         </Route>
+
         <Route path="/search">
           <SearchPage
             labelText="Choose your Movie:"
@@ -36,11 +60,15 @@ function App() {
             setSearchInputValue={setSearchInputValue}
             genres={genres}
             onSetGenre={handleSetGenre}
+            filterByGenre={filterByGenres}
           />
         </Route>
+
         <Route path="/filteredmovies">
           <FilteredMoviesPage
-            filteredMovies={filteredMovies}
+            filterByGenres={filterByGenres}
+            movies={fetchMovies}
+            genres={genres}
             searchInputValue={searchInputValue}
           />
         </Route>
@@ -49,10 +77,10 @@ function App() {
   )
 
   function handleSetGenre(genre) {
-    if (genres.includes(genre)) {
-      setGenres(genres.filter(g => g !== genre))
+    if (filterByGenres.includes(genre)) {
+      setFilterByGenres(filterByGenres.filter(g => g !== genre))
     } else {
-      setGenres([...genres, genre])
+      setFilterByGenres([...filterByGenres, genre])
     }
   }
 
@@ -64,5 +92,3 @@ function App() {
     setPlayers([...players.slice(0, index), ...players.slice(index + 1)])
   }
 }
-
-export default App

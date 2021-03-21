@@ -11,6 +11,7 @@ export default function SearchPage({
   setSearchInputValue,
   genres,
   onSetGenre,
+  filterByGenre,
 }) {
   return (
     <>
@@ -22,7 +23,11 @@ export default function SearchPage({
         setSearchInputValue={setSearchInputValue}
       />
 
-      <FilterTag genres={genres} onSetGenre={onSetGenre} />
+      <FilterTag
+        genres={genres}
+        onSetGenre={onSetGenre}
+        filterByGenre={filterByGenre}
+      />
 
       <ButtonWrapper>
         <MenuButton as={Link} to="/">

@@ -1,21 +1,18 @@
 import styled from 'styled-components/macro'
-import movies from '../../movieList.json'
 import Button from '../Button/Button'
 
-export default function FilterTag({ onSetGenre, genres }) {
-  const allGenres = movies.flatMap(({ genre }) => genre)
-  const uniqueTags = [...new Set(allGenres)]
+export default function FilterTag({ onSetGenre, genres, filterByGenre }) {
   return (
     <>
       <GenreTitle>Pick your Genre(s):</GenreTitle>
       <TagsWrapper>
-        {uniqueTags.map((tag, id) => (
+        {genres.map((genre, index) => (
           <Button
-            active={genres.includes(tag)}
-            key={id}
-            onClick={() => onSetGenre(tag)}
+            active={filterByGenre.includes(genre.id)}
+            key={index}
+            onClick={() => onSetGenre(genre.id)}
           >
-            {tag}
+            {genre.name}
           </Button>
         ))}
       </TagsWrapper>

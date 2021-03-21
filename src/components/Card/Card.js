@@ -1,15 +1,21 @@
 import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 
-export default function Card({ title, poster, genre }) {
+export default function Card({ title, image, genresMovie, allGenres }) {
+  const IMG_API = 'https://image.tmdb.org/t/p/'
+
+  const genresNames = allGenres
+    .filter(g => genresMovie.includes(g.id))
+    .map(g => g.name)
+
   return (
     <>
       <CardGrid>
         <span>{title}</span>
-        <Poster src={poster} alt="" />
+        <Poster src={`${IMG_API}w185${image}`} alt="" />
         <GenreWrapper>
-          {genre.map((item, index) => (
-            <Button key={index}>{item}</Button>
+          {genresNames.map((genre, index) => (
+            <Button key={index}>{genre}</Button>
           ))}
         </GenreWrapper>
       </CardGrid>
@@ -35,4 +41,5 @@ const Poster = styled.img`
 const GenreWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 `
