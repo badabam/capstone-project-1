@@ -18,6 +18,7 @@ export default function App() {
 
   useEffect(() => {
     for (let i = 1; i <= 5; i++) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}&page=${i}`
 
       fetch(MOVIE_API)
