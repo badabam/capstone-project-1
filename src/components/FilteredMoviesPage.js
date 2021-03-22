@@ -16,34 +16,45 @@ export default function FilteredMoviesPage({
       movie.genre_ids.some(g => filterByGenres.includes(g))
   )
 
+  function scrollTop() {
+    window.scrollTo(0, 0)
+  }
+
   return (
     <>
-      <Header name="Movie Picker" />
-      <ButtonWrapper>
-        <MenuButton as={Link} to="/">
-          Home
-        </MenuButton>
-        <MenuButton as={Link} to="/search">
-          Search Page
-        </MenuButton>
-      </ButtonWrapper>
-      {filteredMovies
-        // .filter(item =>
-        //   item.title.toLowerCase().includes(searchInputValue.toLowerCase())
-        // )
-        .map(({ id, title, poster_path, genre_ids }) => (
-          <Card
-            title={title}
-            image={poster_path}
-            genresMovie={genre_ids}
-            allGenres={genres}
-            key={id}
-          />
-        ))}
+      <FilterWrapper>
+        <Header name="Movie Picker" />
+        <ButtonWrapper>
+          <MenuButton as={Link} to="/">
+            Home
+          </MenuButton>
+          <MenuButton as={Link} to="/search">
+            Search Page
+          </MenuButton>
+        </ButtonWrapper>
+        {filteredMovies
+          // .filter(item =>
+          //   item.title.toLowerCase().includes(searchInputValue.toLowerCase())
+          // )
+          .map(({ id, title, poster_path, genre_ids }) => (
+            <Card
+              title={title}
+              image={poster_path}
+              genresMovie={genre_ids}
+              allGenres={genres}
+              key={id}
+            />
+          ))}
+        <ScrollButton onClick={scrollTop}>^</ScrollButton>
+      </FilterWrapper>
     </>
   )
 }
 
+const FilterWrapper = styled.div`
+  position: relative;
+  margin-bottom: 50px;
+`
 const ButtonWrapper = styled.div`
   text-align: center;
   margin: 35px;
@@ -53,4 +64,13 @@ const MenuButton = styled(Button)`
   color: white;
   border-radius: 10px;
   padding: 10px;
+`
+const ScrollButton = styled(Button)`
+  position: absolute;
+  background-color: #333;
+  color: white;
+  right: 10px;
+  bottom: -30px;
+  padding: 10px;
+  font-weight: bold;
 `
