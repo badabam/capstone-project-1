@@ -1,27 +1,36 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 
-export default function User({ name, onHandleDelete }) {
+export default function User({ name, onHandleDelete, onHandleSelection }) {
   return (
-    <section>
-      <Player>
-        <PlayerName>{name}</PlayerName>
+    <>
+      <PlayerWrapper onClick={onHandleSelection}>
+        <PlayerName as={Link} to="/search">
+          {name}
+        </PlayerName>
         <Button onClick={onHandleDelete}>X</Button>
-      </Player>
-    </section>
+      </PlayerWrapper>
+    </>
   )
 }
 
-export const Player = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 10px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px #ddd;
-  background: white;
-`
-export const PlayerName = styled.div`
+const PlayerWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  align-content: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #eee;
+  background: snow;
+  width: 95%;
+`
+const PlayerName = styled.div`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
 `

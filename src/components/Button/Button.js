@@ -8,8 +8,9 @@ export default styled.button`
   text-align: center;
   justify-content: center;
   text-decoration: none;
-  background: ${p => (p.active ? '#ff5511' : '#ddd')};
+  background: ${p => (p.active ? '#96031A' : '#ddd')};
   color: ${p => (p.active ? 'white' : 'black')};
   font-family: inherit;
   margin: 2px 5px;
 `
+//type of orange -- ff5511
