@@ -5,7 +5,12 @@ import Button from './Button/Button'
 import Header from './Header/Header'
 import User from './User/User'
 import UserInput from './UserInput/UserInput'
-export default function HomePage({ players, addPlayer, onHandleDelete }) {
+export default function HomePage({
+  players,
+  addPlayer,
+  onHandleDelete,
+  onHandleSelection,
+}) {
   return (
     <>
       <Header name="Movie Picker" />
@@ -21,8 +26,10 @@ export default function HomePage({ players, addPlayer, onHandleDelete }) {
           key={index}
           name={name}
           onHandleDelete={() => onHandleDelete(index)}
+          onHandleSelection={() => onHandleSelection(name)}
         />
       ))}
+      <Subtitle>(Click the player name to start a search)</Subtitle>
       <ButtonWrapper>
         <MenuButton as={Link} to="/search">
           Click here to Search for Movies
@@ -37,8 +44,14 @@ const ButtonWrapper = styled.div`
   margin: 35px;
 `
 const MenuButton = styled(Button)`
-  background-color: #333;
+  background-color: #6d676e;
   color: white;
   border-radius: 10px;
   padding: 10px;
+`
+const Subtitle = styled.span`
+  display: flex;
+  justify-content: center;
+  font-size: 0.6rem;
+  opacity: 0.9;
 `

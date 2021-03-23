@@ -5,9 +5,11 @@ export default function Header({ name }) {
 }
 
 const HeaderApp = styled.header`
+  position: sticky;
+  top: 0;
   text-align: center;
   text-transform: uppercase;
-  background: #ccc;
+  background: #333;
   padding: 20px;
   margin-bottom: 20px;
 `

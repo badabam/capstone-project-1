@@ -4,11 +4,16 @@ import Button from './Button/Button'
 import FilterTag from './FilterTag/FilterTag'
 import Header from './Header/Header'
 
-export default function SearchPage({ genres, onSetGenre, filterByGenre }) {
+export default function SearchPage({
+  genres,
+  onSetGenre,
+  filterByGenre,
+  userSelection,
+}) {
   return (
     <>
       <Header name="Movie Picker" />
-
+      <TagName userSelection={userSelection}>{userSelection[0].name}</TagName>
       <FilterTag
         genres={genres}
         onSetGenre={onSetGenre}
@@ -32,8 +37,14 @@ const ButtonWrapper = styled.div`
   margin-top: 35px;
 `
 const MenuButton = styled(Button)`
-  background-color: #333;
+  background-color: #6d676e;
   color: white;
   border-radius: 10px;
   padding: 10px;
+`
+const TagName = styled.div`
+  display: flex;
+  justify-content: center;
+  color: crimson;
+  letter-spacing: 5px;
 `

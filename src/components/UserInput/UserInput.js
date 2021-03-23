@@ -15,7 +15,7 @@ export default function UserInput({ labelText, placeholder, onAddPlayer }) {
           maxLength="20"
         />
       </label>
-      <Button>Add Name</Button>
+      <AddButton>Add Name</AddButton>
     </FormGrid>
   )
   function handleSubmit(event) {
@@ -49,4 +49,9 @@ const FormGrid = styled.form`
   input:focus {
     outline: none;
   }
+`
+
+const AddButton = styled(Button)`
+  background-color: #6d676e;
+  color: white;
 `

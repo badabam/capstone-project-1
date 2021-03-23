@@ -46,7 +46,7 @@ const ButtonWrapper = styled.div`
   margin: 35px;
 `
 const MenuButton = styled(Button)`
-  background-color: #333;
+  background-color: #6d676e;
   color: white;
   border-radius: 10px;
   padding: 10px;

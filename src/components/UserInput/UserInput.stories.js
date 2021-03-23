@@ -10,7 +10,7 @@ const Template = args => <UserInput {...args} />
 
 export const UserInputDefault = Template.bind({})
 UserInputDefault.args = {
-  setSearchInputValue: action('onChange'),
+  setPayers: action('onChange'),
   placeholder: 'Insert your Name',
   tag: 'input',
 }
