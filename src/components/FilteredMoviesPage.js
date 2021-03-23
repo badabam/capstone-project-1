@@ -4,21 +4,12 @@ import Button from './Button/Button'
 import Card from './Card/Card'
 import Header from './Header/Header'
 
-export default function FilteredMoviesPage({
-  movies,
-  filterByGenres,
-  genres,
-  // searchInputValue,
-}) {
+export default function FilteredMoviesPage({ movies, filterByGenres, genres }) {
   const filteredMovies = movies.filter(
     movie =>
       filterByGenres.length === 0 ||
       movie.genre_ids.some(g => filterByGenres.includes(g))
   )
-
-  function scrollTop() {
-    window.scrollTo(0, 0)
-  }
 
   return (
     <>
@@ -32,20 +23,15 @@ export default function FilteredMoviesPage({
             Search Page
           </MenuButton>
         </ButtonWrapper>
-        {filteredMovies
-          // .filter(item =>
-          //   item.title.toLowerCase().includes(searchInputValue.toLowerCase())
-          // )
-          .map(({ id, title, poster_path, genre_ids }) => (
-            <Card
-              title={title}
-              image={poster_path}
-              genresMovie={genre_ids}
-              allGenres={genres}
-              key={id}
-            />
-          ))}
-        <ScrollButton onClick={scrollTop}>^</ScrollButton>
+        {filteredMovies.map(({ id, title, poster_path, genre_ids }) => (
+          <Card
+            title={title}
+            image={poster_path}
+            genresMovie={genre_ids}
+            allGenres={genres}
+            key={id}
+          />
+        ))}
       </FilterWrapper>
     </>
   )
@@ -64,13 +50,4 @@ const MenuButton = styled(Button)`
   color: white;
   border-radius: 10px;
   padding: 10px;
-`
-const ScrollButton = styled(Button)`
-  position: absolute;
-  background-color: #333;
-  color: white;
-  right: 10px;
-  bottom: -30px;
-  padding: 10px;
-  font-weight: bold;
 `

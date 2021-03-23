@@ -10,7 +10,6 @@ export default function App() {
   const [fetchMovies, setFetchMovies] = useState([])
   const [genres, setGenres] = useState([])
   const [filterByGenres, setFilterByGenres] = useState([])
-  const [searchInputValue, setSearchInputValue] = useState([])
 
   const { REACT_APP_TMDB_API_KEY } = process.env
   let MOVIE_API
@@ -18,7 +17,6 @@ export default function App() {
 
   useEffect(() => {
     for (let i = 1; i <= 5; i++) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}&page=${i}`
 
       fetch(MOVIE_API)
@@ -60,8 +58,6 @@ export default function App() {
           <SearchPage
             labelText="Choose your Movie:"
             placeholder="Movie Name"
-            searchInputValue={searchInputValue}
-            setSearchInputValue={setSearchInputValue}
             genres={genres}
             onSetGenre={handleSetGenre}
             filterByGenre={filterByGenres}
@@ -73,7 +69,6 @@ export default function App() {
             filterByGenres={filterByGenres}
             movies={fetchMovies}
             genres={genres}
-            searchInputValue={searchInputValue}
           />
         </Route>
       </Switch>
