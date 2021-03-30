@@ -7,7 +7,7 @@ import HomePage from './components/HomePage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
-  const [fetchMovies, setFetchMovies] = useState([])
+  const [movies, setMovies] = useState([])
   const [genres, setGenres] = useState([])
   const [filterByGenres, setFilterByGenres] = useState([])
 
@@ -18,19 +18,15 @@ export default function App() {
   const GENRE_API = `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US`
 
   useEffect(() => {
+    const promises = []
     for (let i = 1; i <= 5; i++) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       MOVIE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${REACT_APP_TMDB_API_KEY}&page=${i}`
 
-      fetch(MOVIE_API)
-        .then(res => res.json())
-        .then(data => {
-          setFetchMovies(oldState => [...oldState, ...data.results])
-        })
-        .catch(error => {
-          throw error
-        })
+      const promise = fetch(MOVIE_API).then(res => res.json())
+      promises.push(promise)
     }
+    Promise.all(promises).then(results => setMovies(...results.flat()))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [MOVIE_API])
 
   useEffect(() => {
@@ -72,7 +68,7 @@ export default function App() {
         <Route path="/filteredmovies">
           <FilteredMoviesPage
             filterByGenres={filterByGenres}
-            movies={fetchMovies}
+            movies={movies}
             genres={genres}
           />
         </Route>
